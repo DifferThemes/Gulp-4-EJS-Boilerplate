@@ -10,6 +10,7 @@ const gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     image = require('gulp-image'),
     clean = require('gulp-clean'),
+    notify = require('gulp-notify'),
     gulpEjsMonster = require('gulp-ejs-monster');
 
 const ProxyServer = false;
@@ -112,7 +113,10 @@ function js(done) {
 function scss(done) {
     return gulp.src(paths.scss.src)
         .pipe(sourcemaps.init())
-        .pipe(sass())
+        .pipe(sass().on('error', notify.onError({
+            message: "<%= error.message %>",
+            title: "Sass Error!"
+        })))
         .pipe(autoprefixer({
             overrideBrowserslist: ["> 0.1%",
                 "last 5 versions",
