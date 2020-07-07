@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/DifferThemes/Gulp-4-EJS-Boilerplate#readme",
   "dependencies": {
-    "npm": "^6.14.5"
+    "npm": "^6.14.6"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
